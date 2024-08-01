@@ -1570,15 +1570,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5728316336876200027, guid: 429ed28b3f94d174398e7698e2b9731a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.34
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5728316336876200027, guid: 429ed28b3f94d174398e7698e2b9731a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5728316336876200027, guid: 429ed28b3f94d174398e7698e2b9731a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5728316336876200027, guid: 429ed28b3f94d174398e7698e2b9731a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1610,15 +1610,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8011596198872176063, guid: 429ed28b3f94d174398e7698e2b9731a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.404636
+      value: -5.95
       objectReference: {fileID: 0}
     - target: {fileID: 8011596198872176063, guid: 429ed28b3f94d174398e7698e2b9731a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.66953
+      value: 9.22
       objectReference: {fileID: 0}
     - target: {fileID: 8011596198872176063, guid: 429ed28b3f94d174398e7698e2b9731a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.8789468
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 8011596198872176063, guid: 429ed28b3f94d174398e7698e2b9731a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1663,15 +1663,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1955011677681562546, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.34
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1955011677681562546, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1955011677681562546, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1955011677681562546, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1704,54 +1704,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1841851326432220019, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9040959701362907706}
-    - targetCorrespondingSourceObject: {fileID: 1841851326432220019, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9040959701362907705}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
---- !u!1 &9040959701362907704 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1841851326432220019, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
-  m_PrefabInstance: {fileID: 9040959701362907703}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &9040959701362907705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9040959701362907704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee09128acecbcc409707135bc4123a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 284329518}
---- !u!195 &9040959701362907706
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9040959701362907704}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 12
-  m_Acceleration: 20
-  avoidancePriority: 50
-  m_AngularSpeed: 500
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!4 &9040959701362907710 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1955011677681562546, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
