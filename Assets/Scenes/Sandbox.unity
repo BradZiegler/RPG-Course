@@ -1657,6 +1657,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 367939593357446945, guid: 24f631c9e07cc04408463b89a652f0ee, type: 3}
+      propertyPath: health
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5363424739868458584, guid: 24f631c9e07cc04408463b89a652f0ee, type: 3}
       propertyPath: m_Name
       value: Enemy
