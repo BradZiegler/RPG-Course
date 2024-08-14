@@ -1,10 +1,15 @@
 using UnityEngine;
 using RPG.Movement;
 using RPG.Combat;
-using Unity.VisualScripting;
 
 namespace RPG.Control {
     public class PlayerController : MonoBehaviour {
+        Fighter fighter;
+
+        void Start () {
+            fighter = GetComponent<Fighter>();
+        }
+
         void Update() {
             if (InteractWithCombat()) { return; }
             if (InteractWithMovement()) { return; }
@@ -14,10 +19,10 @@ namespace RPG.Control {
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
             foreach (RaycastHit hit in hits) {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-                if (target == null) { continue; }
+                if (!fighter.CanAttack(target)) { continue; }
 
                 if (Input.GetMouseButtonDown(0)) {
-                    GetComponent<Fighter>().Attack(target);
+                    fighter.Attack(target);
                 } 
                 return true;
             }
