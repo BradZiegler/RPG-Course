@@ -49,15 +49,15 @@ namespace RPG.Combat {
             return Vector3.Distance(transform.position, target.transform.position) <= weaponRange;
         }
 
-        public void Attack(CombatTarget combatTarget) {
-            GetComponent<ActionScheduler>().StartAction(this);
-            target = combatTarget.GetComponent<Health>();
-        }
-
-        public bool CanAttack(CombatTarget combatTarget) {
+        public bool CanAttack(GameObject combatTarget) {
             if (combatTarget == null) { return false; }
             Health targetToTest = combatTarget.GetComponent<Health>();
             return combatTarget != null && !targetToTest.IsDead();
+        }
+
+        public void Attack(GameObject combatTarget) {
+            GetComponent<ActionScheduler>().StartAction(this);
+            target = combatTarget.GetComponent<Health>();
         }
 
         public void Cancel() {
