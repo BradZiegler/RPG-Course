@@ -1,5 +1,6 @@
 using RPG.Combat;
 using UnityEngine;
+using RPG.Core;
 
 namespace RPG.Control {
     public class AIController : MonoBehaviour {
@@ -7,13 +8,16 @@ namespace RPG.Control {
 
         GameObject player;
         Fighter fighter;
+        Health health;
 
         private void Start() {
             player = GameObject.FindWithTag("Player");
             fighter = GetComponent<Fighter>();
+            health = GetComponent<Health>();
         }
 
         private void Update() {
+            if (health.IsDead()) { return; }
             if (InAttackRangeOfPlayer() && fighter.CanAttack(player)) {
                 StartAttack();
             } else {
