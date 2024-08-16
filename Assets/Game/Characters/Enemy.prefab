@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: health
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: -3487862385773841891, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
+      propertyPath: healthPoints
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1841851326432220019, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -119,6 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseDistance: 5
   suspicionTime: 5
+  patrolPath: {fileID: 0}
+  waypointTolerance: 1
 --- !u!114 &1049596827336160029
 MonoBehaviour:
   m_ObjectHideFlags: 0
