@@ -14,7 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3487862385773841891, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
       propertyPath: healthPoints
-      value: 20
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 502783578364963892, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
+      propertyPath: maxSpeed
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 1841851326432220019, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
       propertyPath: m_Name
@@ -59,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 1955011677681562546, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256102636382817973, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
+      propertyPath: weaponDamage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6282908817107708143, guid: 1bafd17296ebb37428c477963a97436e, type: 3}
       propertyPath: m_Speed
@@ -125,6 +133,8 @@ MonoBehaviour:
   suspicionTime: 5
   patrolPath: {fileID: 0}
   waypointTolerance: 1
+  waypointDwellTime: 3
+  patrolSpeedFraction: 0.2
 --- !u!114 &1049596827336160029
 MonoBehaviour:
   m_ObjectHideFlags: 0
