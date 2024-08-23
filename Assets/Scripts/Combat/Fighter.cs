@@ -5,14 +5,16 @@ using RPG.Core;
 namespace RPG.Combat {
     public class Fighter : MonoBehaviour, IAction {
         [SerializeField] float timeBetweenAttacks = 1f;
-        [SerializeField] Transform handTransform = null;
-        [SerializeField] Weapon weapon = null;
+        [SerializeField] Transform rightHandTransform = null;
+        [SerializeField] Transform leftHandTransform = null;
+        [SerializeField] Weapon defaultWeapon = null;
 
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
+        Weapon currentWeapon = null;
 
         private void Start() {
-            SpawnWeapon();
+            EquipWeapon(defaultWeapon);
         }
 
         private void Update() {
@@ -31,7 +33,7 @@ namespace RPG.Combat {
 
         // Public Methods 
         public bool IsInRange() {
-            return Vector3.Distance(transform.position, target.transform.position) <= weapon.GetRange();
+            return Vector3.Distance(transform.position, target.transform.position) <= currentWeapon.GetRange();
         }
 
         public bool CanAttack(GameObject combatTarget) {
@@ -53,11 +55,10 @@ namespace RPG.Combat {
         }
 
         // Private Methods
-        private void SpawnWeapon() {
-            if (weapon == null) { return; }
-            if (handTransform == null) { return; }
+        public void EquipWeapon(Weapon weapon) {
+            currentWeapon = weapon;
             Animator animator = GetComponent<Animator>();
-            weapon.Spawn(handTransform, animator);
+            weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
 
         private void AttackBehaviour() {
@@ -77,7 +78,16 @@ namespace RPG.Combat {
         // Animation Event
         void Hit() {
             if (target == null) { return; }
-            target.TakeDamage(weapon.GetDamage());
+
+            if (currentWeapon.HasProjectile()) {
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+            } else {
+                target.TakeDamage(currentWeapon.GetDamage());
+            }
+        }
+
+        void Shoot() {
+            Hit();
         }
 
         private void StopAttack(){
