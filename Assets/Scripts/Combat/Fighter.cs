@@ -1,9 +1,11 @@
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using RPG.Saving;
+using Newtonsoft.Json.Linq;
 
 namespace RPG.Combat {
-    public class Fighter : MonoBehaviour, IAction {
+    public class Fighter : MonoBehaviour, IAction, IJsonSaveable {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
@@ -14,7 +16,9 @@ namespace RPG.Combat {
         Weapon currentWeapon = null;
 
         private void Start() {
-            EquipWeapon(defaultWeapon);
+            if (currentWeapon == null) {
+                EquipWeapon(defaultWeapon);
+            }
         }
 
         private void Update() {
@@ -93,6 +97,16 @@ namespace RPG.Combat {
         private void StopAttack(){
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
+        }
+
+        public JToken CaptureAsJToken() {
+            return JToken.FromObject(currentWeapon.name);
+        }
+
+        public void RestoreFromJToken(JToken state) {
+            string weaponName = state.ToObject<string>();
+            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
         }
     }
 }

@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: defaultWeapon
       value: 
       objectReference: {fileID: 11400000, guid: 6c05c09a010bbba408bd4f28d2597f03, type: 2}
+    - target: {fileID: 2180749488332164140, guid: ef75557b338638e4db906e46bedb0e3c, type: 3}
+      propertyPath: defaultWeaponName
+      value: Bow Red Projectile
+      objectReference: {fileID: 0}
     - target: {fileID: 5845146944297488874, guid: ef75557b338638e4db906e46bedb0e3c, type: 3}
       propertyPath: m_Name
       value: Archer
