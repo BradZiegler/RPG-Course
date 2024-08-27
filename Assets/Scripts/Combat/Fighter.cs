@@ -3,9 +3,12 @@ using RPG.Movement;
 using RPG.Core;
 using RPG.Saving;
 using Newtonsoft.Json.Linq;
+using RPG.Attributes;
+using RPG.Stats;
+using System.Collections.Generic;
 
 namespace RPG.Combat {
-    public class Fighter : MonoBehaviour, IAction, IJsonSaveable {
+    public class Fighter : MonoBehaviour, IAction, IJsonSaveable, IModifierProvider {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
@@ -65,6 +68,10 @@ namespace RPG.Combat {
             weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
 
+        public Health GetTarget() {
+            return target;
+        }
+
         private void AttackBehaviour() {
             transform.LookAt(target.transform);
             if (timeSinceLastAttack > timeBetweenAttacks) {
@@ -83,10 +90,12 @@ namespace RPG.Combat {
         void Hit() {
             if (target == null) { return; }
 
+            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
             if (currentWeapon.HasProjectile()) {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             } else {
-                target.TakeDamage(currentWeapon.GetDamage());
+                
+                target.TakeDamage(gameObject, damage);
             }
         }
 
@@ -97,6 +106,12 @@ namespace RPG.Combat {
         private void StopAttack(){
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
+        }
+
+        public IEnumerable<float> GetAdditiveModifier(Stat stat) {
+            if (stat == Stat.Damage) {
+                yield return currentWeapon.GetDamage();
+            }
         }
 
         public JToken CaptureAsJToken() {

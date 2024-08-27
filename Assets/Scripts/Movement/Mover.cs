@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using RPG.Core;
 using RPG.Saving;
+using RPG.Attributes;
 using Newtonsoft.Json.Linq;
 
 namespace RPG.Movement {
